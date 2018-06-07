@@ -4,16 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.deivi.boletos.MainActivity"
-    android:background="@drawable/plainbluewallpaper7">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
+    tools:context="com.example.deivi.boletos.CadastrarBoleto">
 
 </android.support.constraint.ConstraintLayout>
