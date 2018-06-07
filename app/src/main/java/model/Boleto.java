@@ -14,6 +14,7 @@ public class Boleto {
     private String descricao;
     private Integer boletoId;
     boolean vencido = false;
+int i;
 
     public Boleto(){}
 
