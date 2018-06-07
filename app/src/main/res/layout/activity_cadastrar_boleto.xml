@@ -18,6 +18,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+
+
                         <Button
                             android:id="@+id/selecionar"
                             android:layout_width="180dp"
@@ -28,8 +30,10 @@
                             />
                 </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
             android:layout_height="110dp"
             android:orientation="horizontal">
                 <ImageView
@@ -39,70 +43,75 @@
 
                     android:layout_marginHorizontal="140dp"
 
-                    app:srcCompat="@drawable/iclauncherbackground"
-                     />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-
-
-
-            >
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-
-                    android:inputType="textPersonName"
-                    android:text="Nome"
-
-                    />
-                <EditText
-
-                    android:id="@+id/editText2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-                    android:inputType="numberDecimal"
-                    android:text="Valor"
-                     />
-
-                <EditText
-                    android:id="@+id/editText3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-
-                    android:inputType="textPersonName"
-                    android:text="Descrição"
-                     />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Vencimento"
-    android:layout_marginTop="5dp"
-    android:layout_marginHorizontal="150dp"/>
+                    app:srcCompat="@drawable/iclauncherbackground" />
 
         </LinearLayout>
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+
+                    >
+
+                        <EditText
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/nome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:inputType="textPersonName"
+                            android:text="Nome"
+
+                            />
+
+                        <EditText
+
+                            android:id="@+id/valor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+
+                            android:inputType="numberDecimal"
+                            android:text="Valor" />
+
+                        <EditText
+                            android:id="@+id/descricao"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+
+
+                            android:inputType="textPersonName"
+                            android:text="Descrição" />
+
+                        <Button
+                            android:id="@+id/btnIserirData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="100dp"
+                            android:onClick="onInsereData"
+                            android:text="Data de Vencimento" />
+
+                </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-                <DatePicker
-                    android:id="@+id/datePicker2"
-                    android:layout_width="match_parent"
-                    android:layout_height="279dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="355dp" />
+                <Button
+                    android:id="@+id/btncadastrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="135dp"
+                    android:onClick="onCadastrar"
+                    android:text="Cadastrar" />
         </LinearLayout>
 
 
