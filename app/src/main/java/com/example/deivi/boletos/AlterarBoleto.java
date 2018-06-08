@@ -1,6 +1,7 @@
 package com.example.deivi.boletos;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -23,9 +24,9 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class AlterarBoleto extends AppCompatActivity {
+public class AlterarBoleto extends Activity {
 
-
+    private EditText id;
     private Button data;
     private EditText nome;
     private EditText valor;
@@ -42,12 +43,13 @@ public class AlterarBoleto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_boleto);
 
-        data = findViewById(R.id.btnIserirData);
-        nome = findViewById(R.id.nome);
-        valor = findViewById(R.id.valor);
-        descricao = findViewById(R.id.descricao);
-        imagem = (ImageView) findViewById(R.id.imagem);
-        galeria = findViewById(R.id.selecionar);
+        id = findViewById(R.id.idAlterar);
+        data = findViewById(R.id.btnIserirDataAlterar);
+        nome = findViewById(R.id.nomeAlterar);
+        valor = findViewById(R.id.valorAlterar);
+        descricao = findViewById(R.id.descricaoAlterar);
+        imagem = (ImageView) findViewById(R.id.imagemAlterar);
+        galeria = findViewById(R.id.selecionarAlterar);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
@@ -107,7 +109,7 @@ public class AlterarBoleto extends AppCompatActivity {
             String picturePath = c.getString(columnIndex);
             c.close();
             Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
-            Bitmap reduzido = Bitmap.createScaledBitmap(thumbnail, 300, 300, true);
+            Bitmap reduzido = Bitmap.createScaledBitmap(thumbnail, 200, 200, true);
             imagem.setImageBitmap(reduzido);
         }
     }
@@ -126,9 +128,28 @@ public class AlterarBoleto extends AppCompatActivity {
     }
 
 
-    public void onInsereData(View v) {
+    public void onInsereDataAlterar(View v) {
         if (v == data)
             showDialog(DATE_DIALOG_ID);
+    }
+
+
+    public void onAlterar(View view){
+        int idAlterar = Integer.parseInt(id.getText().toString());
+        String nome1 = nome.getText().toString();
+        int valor1 = Integer.parseInt(valor.getText().toString());
+        String descricao1 = descricao.getText().toString();
+        String data1 = data_calendario;
+
+        String v = valor.getText().toString();
+
+        String toast = idAlterar+"-"+nome1 + "-" + v + "-" + descricao1+ "-"+data1;
+
+        Toast.makeText(AlterarBoleto.this,
+                "INFO = " + toast, Toast.LENGTH_LONG)
+                .show();
+
+
     }
 
 }

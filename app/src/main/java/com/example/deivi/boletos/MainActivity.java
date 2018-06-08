@@ -21,11 +21,17 @@ public class MainActivity extends Activity {
 
 
     public void onTelaExcluir(View view){
-
+        Intent inte = new Intent(this,ExcluirBoleto.class);
+        startActivity(inte);
     }
 
     public void onTelaCalendario(View view){
 
+    }
+
+    public void onTelaAlterar(View view){
+        Intent inten = new Intent(this,AlterarBoleto.class);
+        startActivity(inten);
     }
 
 }

@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastrarBoleto" />
-        <activity android:name=".AlterarBoleto"></activity>
+        <activity android:name=".AlterarBoleto" />
+        <activity android:name=".ExcluirBoleto"></activity>
     </application>
 
 </manifest>

@@ -107,7 +107,7 @@ public class CadastrarBoleto extends Activity {
             String picturePath = c.getString(columnIndex);
             c.close();
             Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
-            Bitmap reduzido = Bitmap.createScaledBitmap(thumbnail, 300, 300, true);
+            Bitmap reduzido = Bitmap.createScaledBitmap(thumbnail, 200, 200, true);
             imagem.setImageBitmap(reduzido);
         }
     }
