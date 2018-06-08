@@ -10,7 +10,7 @@ public class Boleto {
 
     private String nome;
     private double valor;
-    private Date dataVencimento;
+    private String dataVencimento;
     private String descricao;
     private Integer boletoId;
     boolean vencido = false;
@@ -18,7 +18,7 @@ int i;
 
     public Boleto(){}
 
-    public Boleto(String nome, double valor, Date dataVencimento, String descricao, Integer boletoId, boolean vencido){
+    public Boleto(String nome, double valor, String dataVencimento, String descricao){
         this.nome=nome;
         this.valor=valor;
         this.dataVencimento=dataVencimento;
@@ -54,10 +54,10 @@ int i;
     public void setValor(double valor) {
         this.valor = valor;
     }
-    public Date getDataVencimento() {
+    public String getDataVencimento() {
         return dataVencimento;
     }
-    public void setDataVencimento(Date dataVencimento) {
+    public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
     public String getDescricao() {
