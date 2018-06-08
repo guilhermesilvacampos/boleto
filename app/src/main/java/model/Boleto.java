@@ -14,7 +14,7 @@ public class Boleto {
     private String descricao;
     private Integer boletoId;
     boolean vencido = false;
-int i;
+
 
     public Boleto(){}
 
@@ -23,8 +23,7 @@ int i;
         this.valor=valor;
         this.dataVencimento=dataVencimento;
         this.descricao=descricao;
-        this.boletoId=boletoId;
-        this.vencido=vencido;
+
     }
 
     //possivel método q verifica se esta vencido

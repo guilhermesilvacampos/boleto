@@ -28,7 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         //tabela boletosVencidos
         db.execSQL("create table boletosVencidos(nomeBoleto text not null, valor double not null, dataVencimento Date,"+"" +
-                " descricao text, dataPagamento Date, diasVencidos integer, boletoVencidoId integer references boletos(boletoId))");
+                " descricao text,  boletoVencidoId integer references boletos(boletoId))");
 
 
         //cadastrando um usuario admin
@@ -69,7 +69,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public static class BoletoPagos{
+    public static class BoletosPagos{
         public static final String TABELA ="boletos";
         public static final String NOME_BOLETO="nomeBoleto";
         public static final String VALOR = "valor";
