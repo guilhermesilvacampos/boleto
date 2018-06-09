@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
     }
 
     public void onTelaBoletos(View view){
-        Intent intent1 = new Intent (this, ListarBoletos.class );
+        Intent intent1 = new Intent (this, ListaDeBoletos.class );
         startActivity(intent1);
     }
 

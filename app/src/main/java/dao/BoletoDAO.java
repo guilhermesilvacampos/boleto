@@ -58,11 +58,14 @@ public class BoletoDAO {
             Boleto model = criarBoleto(cursor);
             boletos.add(model);
 
+            //System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
         }
         cursor.close();
 
         return boletos;
+
     }
+
     public long salvarBoleto(Boleto boleto){
         ContentValues valores = new ContentValues();
         valores.put(DataBaseHelper.Boletos.NOME_BOLETO, boleto.getNome());

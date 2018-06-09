@@ -1,5 +1,6 @@
 package com.example.deivi.boletos;
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,23 +10,24 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.List;
-import adapter.BoletoAdapter;
-import dao.BoletoDAO;
-import model.Boleto;
+import adapter.BoletoVencidoAdapter;
+import dao.BoletoPagoDAO;
+import model.BoletoPago;
 import util.Mensagem;
+
 
 /**
  * Created by miguel on 09/06/2018.
  */
 
-public class ListarBoletosAPagar extends Activity implements
+public class ListarBoletosVencidos extends Activity implements
         AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
 
     private ListView lista;
-    private List<Boleto> boletoList;
-    private BoletoAdapter boletoAdapter;
-    private BoletoDAO boletoDAO;
+    private List<BoletoPago> boletoVencidoList;
+    private BoletoVencidoAdapter boletoVencidoAdapter;
+    private BoletoPagoDAO boletoPagoDAO;
 
     private int idposicao;
 
@@ -34,24 +36,24 @@ public class ListarBoletosAPagar extends Activity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_boletos_apagar);
+        setContentView(R.layout.activity_boletos_pagos);
 
         alertDialog      = Mensagem.criarAlertDialog(this);
         alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
 
-        boletoDAO    = new BoletoDAO(this);
-        boletoList    = boletoDAO.listBoletos();
-        boletoAdapter= new BoletoAdapter(this, boletoList);
+        boletoPagoDAO    = new BoletoPagoDAO(this);
+        boletoVencidoList    = boletoPagoDAO.listBoletosPagos();
+        boletoVencidoAdapter= new BoletoVencidoAdapter(this, boletoVencidoList);
 
         lista = (ListView) findViewById(R.id.Lista_Boletos_Apagar);
-        lista.setAdapter(boletoAdapter);
+        lista.setAdapter(boletoVencidoAdapter);
 
         lista.setOnItemClickListener(this);
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        int id = boletoList.get(idposicao).getBoletoId();
+        int id = boletoVencidoList.get(idposicao).getBoletoId();
 
         switch (which){
             case 0:
@@ -63,8 +65,8 @@ public class ListarBoletosAPagar extends Activity implements
                 alertConfirmacao.show();
                 break;
             case DialogInterface.BUTTON_POSITIVE:
-                boletoList.remove(idposicao);
-                boletoDAO.removerBoleto(id);
+                boletoVencidoList.remove(idposicao);
+                boletoPagoDAO.removerBoletoPago(id);
                 lista.invalidateViews();
                 break;
             case DialogInterface.BUTTON_NEGATIVE:

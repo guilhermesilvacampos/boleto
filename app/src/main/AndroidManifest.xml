@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".CadastrarBoleto" />
         <activity android:name=".AlterarBoleto" />
-        <activity android:name=".ListarBoletos"/>
+        <activity android:name=".ListaDeBoletos"/>
+        <activity android:name=".ListarBoletosPagos"/>
+        <activity android:name=".ListarBoletosVencidos"/>
         <activity android:name=".ListarBoletosAPagar"/>
         <activity android:name=".ExcluirBoleto"></activity>
     </application>

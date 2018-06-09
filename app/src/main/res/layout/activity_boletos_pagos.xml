@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:onClick="onClickMenu"
     android:background="@drawable/plainbluewallpaper7"
-    tools:context=".">
+    tools:context="com.example.deivi.boletos.ListarBoletosPagos">
 
     <TextView
         android:id="@+id/textView3"
