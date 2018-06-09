@@ -25,8 +25,9 @@ public class MainActivity extends Activity {
         startActivity(inte);
     }
 
-    public void onTelaCalendario(View view){
-
+    public void onTelaBoletos(View view){
+        Intent intent1 = new Intent (this, ListarBoletos.class );
+        startActivity(intent1);
     }
 
     public void onTelaAlterar(View view){
