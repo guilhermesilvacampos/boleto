@@ -13,7 +13,7 @@ public class Boleto {
     private String dataVencimento;
     private String descricao;
     private Integer boletoId;
-    boolean vencido = false;
+   private boolean vencido = false;
 
 
     public Boleto(){}

@@ -5,7 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+
+import android.provider.ContactsContract;
+
 import java.util.ArrayList;
+
+import java.util.Calendar;
 import java.util.List;
 
 import model.Boleto;
@@ -98,6 +103,30 @@ public class BoletoDAO {
         }
         return null;
     }
+
+
+
+    public List<Boleto> listBoletosVirouVencido(String data){
+
+        Cursor cursor = getDatabase().query(DataBaseHelper.Boletos.TABELA,
+                DataBaseHelper.Boletos.COLUNAS, "dataVencimento =?", null, null, null,null);
+
+
+        List<Boleto> boletos = new ArrayList<Boleto>();
+        while(cursor.moveToNext()){
+            Boleto model = criarBoleto(cursor);
+            boletos.add(model);
+
+
+        }
+        cursor.close();
+
+
+        return boletos;
+
+    }
+
+
 
     public  void fecharConexao(){
         dataBaseHelper.close();

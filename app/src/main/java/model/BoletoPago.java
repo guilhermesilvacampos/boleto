@@ -11,7 +11,7 @@ public class BoletoPago  {
     private String dataPagamento;
     private String descricao;
     private Integer boletoId;
-    private boolean vencido = true;
+
 
 
 
@@ -65,11 +65,5 @@ public class BoletoPago  {
         this.boletoId = boletoId;
     }
 
-    public boolean isVencido() {
-        return vencido;
-    }
 
-    public void setVencido(boolean vencido) {
-        this.vencido = vencido;
-    }
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.BoletoPago;
+import model.BoletoVencido;
 
 /**
  * Created by deivi on 08/06/2018.
@@ -47,6 +48,8 @@ public class BoletoPagoDAO {
         return model;
 
     }
+
+
     public List<BoletoPago> listBoletosPagos(){
 
         Cursor cursor = getDatabase().query(DataBaseHelper.BoletosPagos.TABELA,
@@ -63,6 +66,7 @@ public class BoletoPagoDAO {
 
         return boletosPagos;
     }
+
     public long salvarBoletoPago(BoletoPago boletosPagos){
         ContentValues valores = new ContentValues();
         valores.put(DataBaseHelper.BoletosPagos.NOME_BOLETO, boletosPagos.getNome());
@@ -96,6 +100,11 @@ public class BoletoPagoDAO {
         }
         return null;
     }
+
+
+
+
+
 
     public  void fecharConexao(){
         dataBaseHelper.close();
