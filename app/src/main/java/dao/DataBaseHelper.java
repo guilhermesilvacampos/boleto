@@ -31,8 +31,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 " descricao text,  boletoVencidoId integer references boletos(boletoId))");
 
 
+        //tabela de usuarios
+        db.execSQL("create table usuarios(_id integer primary key autoincrement," +
+                " nome text not null, login text not null, senha text not null)");
+
         //cadastrando um usuario admin
-        //db.execSQL("insert into usuarios(nome,login,senha) values ('Admin','admin', '123')");
+        db.execSQL("insert into usuarios(nome,login,senha) values ('Admin','admin', '123')");
     }
 
 

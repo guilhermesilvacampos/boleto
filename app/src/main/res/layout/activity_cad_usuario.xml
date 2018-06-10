@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.deivi.boletos.CadUsuarioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/NomeDosCampos"
+            android:text="Nome de usuário"
+            />
+        <EditText
+            android:id="@+id/usuario_edtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+        <TextView
+            style="@style/NomeDosCampos"
+            android:text="Login"/>
+
+        <EditText
+            android:id="@+id/usuario_edtLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+        <TextView
+            style="@style/NomeDosCampos"
+            android:text="Senha"
+            />
+        <EditText
+            android:id="@+id/usuario_edtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

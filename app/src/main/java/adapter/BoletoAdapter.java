@@ -55,10 +55,7 @@ public class BoletoAdapter extends BaseAdapter{
 
         }
 
-        TextView txtNome = (TextView) view.findViewById(R.id.Lista_Boletos_Apagar);
-        txtNome.setText(boletos.getNome());
-        //  TextView txtSalario = (TextView) view.findViewById(R.id.funcionario_listaSalario);
-        // txtSalario.setText((int) funcionario.getSalario());
+
         return view;
     }
 }

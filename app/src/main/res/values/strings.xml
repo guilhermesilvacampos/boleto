@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Boletos</string>
+    <string name="campo_Obrigatorio">Campo Obrogatorio</string>
+    <string name="mensagem_cadastrado">Registro cadastrado com sucesso</string>
+    <string name="mensagem_atualizado">Registro atualizado com sucesso</string>
+    <string name="mensagem_erro">Erro ao salvar</string>
+
+    <string name="login_txtUsuario">Usuário:</string>string>
+    <string name="login_txtSenha">Senha:</string>
+    <string name="login_bntEntrar">Entrar</string>
+    <string name="login_ckbConectado">Manter Conectado?</string>
+
+    <string name="login_valUsuario">Usuário obrigatorio</string>
+    <string name="login_valSenha">Senha obrigatorio</string>
+    <string name="msg_login_incorreto">usuario e/ou senha inválido.</string>
 </resources>
