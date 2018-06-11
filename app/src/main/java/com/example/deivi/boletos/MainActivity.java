@@ -19,7 +19,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
 
@@ -47,6 +46,26 @@ public class MainActivity extends Activity {
     // Set the alarm to start at approximately 2:00 pm
 
 
+    Calendar calendar = Calendar.getInstance();
+
+calendar.setTimeInMillis(System.currentTimeMillis());
+
+ calendar.set(Calendar.HOUR_OF_DAY, 14);
+
+    // With setInexactRepeating(), you have to use one of the AlarmManager interval
+    // constants--in this case, AlarmManager.INTERVAL_DAY.
+ alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+    AlarmManager.INTERVAL_DAY, tarefaIntent);
+
+
+    Intent tarefaIntent = new Intent(context, ExecutarTarefaProgramadaReceiver.class);
+    PendingIntent tarefaPendingIntent = PendingIntent.getBroadcast(context,1234, tarefaIntent,0);
+
+    AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+
+//Definir o alarme para acontecer todos os dias às 10 horas
+alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+    AlarmManager.INTERVAL_DAY, tarefaPendingIntent);
 
 
 

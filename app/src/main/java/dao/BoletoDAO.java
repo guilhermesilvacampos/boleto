@@ -52,6 +52,8 @@ public class BoletoDAO {
                 cursor.getInt(cursor.getColumnIndex(DataBaseHelper.Boletos.BOLETOID))
 
 
+
+
         );
         System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+cursor);
         System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
