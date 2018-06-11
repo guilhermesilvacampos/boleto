@@ -48,7 +48,7 @@ public class BoletoVencidoAdapter extends BaseAdapter{
 
         if (view==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_cadastrar_boleto, null);
+            view = inflater.inflate(R.layout.activity_boletos_vencidos, null);
 
         }
 

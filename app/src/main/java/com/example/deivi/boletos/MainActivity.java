@@ -39,8 +39,8 @@ public class MainActivity extends Activity {
 
         // With setInexactRepeating(), you have to use one of the AlarmManager interval
         // constants--in this case, AlarmManager.INTERVAL_DAY.
-        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, tarefaPendingIntent);
+             alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                   AlarmManager.INTERVAL_DAY, tarefaPendingIntent);
 
 
 

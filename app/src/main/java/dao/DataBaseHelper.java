@@ -37,6 +37,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         //cadastrando um usuario admin
         db.execSQL("insert into usuarios(nome,login,senha) values ('Admin','admin', '123')");
+
     }
 
 

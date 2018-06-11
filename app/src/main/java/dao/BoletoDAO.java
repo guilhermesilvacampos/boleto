@@ -51,7 +51,8 @@ public class BoletoDAO {
 
 
         );
-
+        System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+cursor);
+        System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
         return model;
 
     }
@@ -66,10 +67,10 @@ public class BoletoDAO {
             Boleto model = criarBoleto(cursor);
             boletos.add(model);
 
-            //System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
+            System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
         }
         cursor.close();
-
+        System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+boletos);
         return boletos;
 
     }

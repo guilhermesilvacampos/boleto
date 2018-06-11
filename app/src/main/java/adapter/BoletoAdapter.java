@@ -51,10 +51,11 @@ public class BoletoAdapter extends BaseAdapter{
 
         if (view==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_cadastrar_boleto, null);
+            view = inflater.inflate(R.layout.activity_boletos_apagar, null);
 
         }
-
+        TextView txtNome = (TextView) view.findViewById(R.id.Lista_Boletos_Apagar);
+        txtNome.setText(boletos.getNome ());
 
         return view;
     }
