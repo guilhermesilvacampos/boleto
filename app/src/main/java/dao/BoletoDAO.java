@@ -97,6 +97,8 @@ public class BoletoDAO {
                 "boletoId = ?" , new String[]{ Integer.toString(id) }) > 0;
     }
 
+
+
     public Boleto buscarBoleto(int id){
         Cursor cursor = getDatabase().query(DataBaseHelper.Boletos.TABELA,
                 DataBaseHelper.Boletos.COLUNAS, "boletoId = ?", new String[]{Integer.toString(id)},null, null,null);

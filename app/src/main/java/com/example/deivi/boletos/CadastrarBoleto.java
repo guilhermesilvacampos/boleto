@@ -33,6 +33,7 @@ public class CadastrarBoleto extends Activity {
     private EditText valor;
     private EditText descricao;
     private String data_calendario;
+
     ImageView imagem;
     Button galeria;
     private final int PERMISSAO_REQUEST = 2;
@@ -139,6 +140,10 @@ public class CadastrarBoleto extends Activity {
 
 
     public void onCadastrar(View view){
+
+
+
+
         String nome1 = nome.getText().toString();
         double valor1 = Double.parseDouble(valor.getText().toString());
         String descricao1 = descricao.getText().toString();
@@ -158,9 +163,11 @@ public class CadastrarBoleto extends Activity {
         b.setDescricao(descricao1);
         b.setDataVencimento(data1);
 
+
         BoletoDAO boletoDAO = new BoletoDAO(this);
 
         boletoDAO.salvarBoleto(b);
+
 
 
 

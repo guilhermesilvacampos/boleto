@@ -54,7 +54,7 @@ public class BoletoAdapter extends BaseAdapter{
             view = inflater.inflate(R.layout.activity_boletos_apagar, null);
 
         }
-        TextView txtNome = (TextView) view.findViewById(R.id.Lista_Boletos_Apagar);
+        TextView txtNome = (TextView) view.findViewById(R.id.textView3);
         txtNome.setText(boletos.getNome ());
 
         return view;

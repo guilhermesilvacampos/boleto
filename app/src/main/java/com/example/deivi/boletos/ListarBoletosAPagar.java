@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -29,6 +30,7 @@ public class ListarBoletosAPagar extends Activity implements
 
     private int idposicao;
 
+
     private AlertDialog alertDialog, alertConfirmacao;
 
     @Override
@@ -51,7 +53,11 @@ public class ListarBoletosAPagar extends Activity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
+Log.i("4","OUUUUUUUUUUUUUUUUUUUUUUUUUUU"+idposicao);
+
         int id = boletoList.get(idposicao).getBoletoId();
+
+        Log.i("3","EIIIIIIIIIIIIIIIIIIIIIIIII"+id);
 
         switch (which){
             case 0:
@@ -76,6 +82,8 @@ public class ListarBoletosAPagar extends Activity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         idposicao = position;
+        Log.i("2","AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"+position);
         alertDialog.show();
+
     }
 }
