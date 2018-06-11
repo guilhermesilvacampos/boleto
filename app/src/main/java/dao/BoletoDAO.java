@@ -48,7 +48,8 @@ public class BoletoDAO {
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.Boletos.NOME_BOLETO)),
                 cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.Boletos.VALOR)),
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.Boletos.DATA_VENCIMENTO)),
-                cursor.getString(cursor.getColumnIndex(DataBaseHelper.Boletos.DESCRICAO))
+                cursor.getString(cursor.getColumnIndex(DataBaseHelper.Boletos.DESCRICAO)),
+                cursor.getInt(cursor.getColumnIndex(DataBaseHelper.Boletos.BOLETOID))
 
 
         );

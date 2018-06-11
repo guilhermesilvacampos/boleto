@@ -71,7 +71,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         public static final String[] COLUNAS = new String[]{
 
-                NOME_BOLETO,VALOR,DATA_VENCIMENTO,DESCRICAO
+                NOME_BOLETO,VALOR,DATA_VENCIMENTO,DESCRICAO, BOLETOID
         };
 
     }

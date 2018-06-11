@@ -18,11 +18,12 @@ public class Boleto {
 
     public Boleto(){}
 
-    public Boleto(String nome, double valor, String dataVencimento, String descricao){
+    public Boleto(String nome, double valor, String dataVencimento, String descricao,Integer boletoId){
         this.nome=nome;
         this.valor=valor;
         this.dataVencimento=dataVencimento;
         this.descricao=descricao;
+        this.boletoId=boletoId;
 
     }
 
