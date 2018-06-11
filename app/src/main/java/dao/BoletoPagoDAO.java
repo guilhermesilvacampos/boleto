@@ -40,7 +40,9 @@ public class BoletoPagoDAO {
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.NOME_BOLETO)),
                 cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.VALOR)),
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.DESCRICAO)),
-                cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.DATA_PAGAMENTO))
+                cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.DATA_PAGAMENTO)),
+                cursor.getInt(cursor.getColumnIndex(DataBaseHelper.BoletosPagos.BOLETOID))
+
 
 
         );

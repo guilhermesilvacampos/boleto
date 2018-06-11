@@ -10,16 +10,17 @@ public class BoletoPago  {
     private double valor;
     private String dataPagamento;
     private String descricao;
-    private Integer boletoId;
+    private int boletoId;
 
 
 
 
-    public BoletoPago(String nome, double valor, String dataPagamento, String descricao){
+    public BoletoPago(String nome, double valor, String dataPagamento, String descricao, int boletoId){
         this.setNome(nome);
         this.setValor(valor);
         this.setDescricao(descricao);
         this.setDataPagamento(dataPagamento);
+        this.setBoletoId(boletoId);
 
     }
 

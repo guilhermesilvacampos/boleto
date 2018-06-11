@@ -65,7 +65,8 @@ public class BoletoVencidoDAO {
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.NOME_BOLETO)),
                         cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.VALOR)),
                         cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO)),
-                        cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DESCRICAO))
+                        cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DESCRICAO)),
+                        cursor.getInt(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.BOLETOID))
 
 
 

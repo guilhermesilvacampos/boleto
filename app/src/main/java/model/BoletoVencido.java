@@ -9,7 +9,7 @@ public class BoletoVencido extends Boleto {
 
 
 
-    public BoletoVencido(String nome_boleto_vencido, double valor_boleto_vencido, double dataVencimento_boleto_vencido, String descricao_boleto_vencido) {
+    public BoletoVencido(String nome_boleto_vencido, double valor_boleto_vencido, double dataVencimento_boleto_vencido, String descricao_boleto_vencido, int boleto_id) {
         this.valor_boleto_vencido = valor_boleto_vencido;
         this.dataVencimento_boleto_vencido = dataVencimento_boleto_vencido;
         this.descricao_boleto_vencido = descricao_boleto_vencido;
