@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import model.Boleto;
+import model.BoletoVencido;
 
 
 /**
@@ -23,8 +24,10 @@ import model.Boleto;
 public class BoletoDAO {
     private DataBaseHelper dataBaseHelper;
     private SQLiteDatabase database;
+    private Context c;
 
     public BoletoDAO(Context context){
+        c= context;
         dataBaseHelper = new DataBaseHelper(context);
     }
 
@@ -108,6 +111,8 @@ public class BoletoDAO {
 
     public List<Boleto> listBoletosVirouVencido(String data){
 
+        BoletoVencidoDAO b = new BoletoVencidoDAO(c);
+
         Cursor cursor = getDatabase().query(DataBaseHelper.Boletos.TABELA,
                 DataBaseHelper.Boletos.COLUNAS, "dataVencimento =?", null, null, null,null);
 
@@ -115,6 +120,7 @@ public class BoletoDAO {
         List<Boleto> boletos = new ArrayList<Boleto>();
         while(cursor.moveToNext()){
             Boleto model = criarBoleto(cursor);
+            b.salvarBoletoVencido(model);
             boletos.add(model);
 
 
@@ -125,6 +131,11 @@ public class BoletoDAO {
         return boletos;
 
     }
+
+
+
+
+
 
 
 

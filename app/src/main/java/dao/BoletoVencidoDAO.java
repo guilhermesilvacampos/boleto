@@ -1,5 +1,6 @@
 package dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Boleto;
+import model.BoletoPago;
 import model.BoletoVencido;
 
 /**
@@ -31,6 +34,27 @@ public class BoletoVencidoDAO {
         }
         return database;
     }
+
+
+    public long salvarBoletoVencido(Boleto boletos){
+        ContentValues valores = new ContentValues();
+        valores.put(DataBaseHelper.BoletosVencidos.NOME_BOLETO, boletos.getNome());
+        valores.put(DataBaseHelper.BoletosVencidos.VALOR, boletos.getValor());
+        valores.put(DataBaseHelper.BoletosVencidos.DESCRICAO, boletos.getDescricao());
+        valores.put(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO, boletos.getDataVencimento());
+
+
+        if (boletos.getBoletoId() != null){
+            return getDatabase().update(DataBaseHelper.BoletosVencidos.TABELA,valores,
+                    "boletoId = ?", new String[]{boletos.getBoletoId().toString() });
+        }
+
+        return getDatabase().insert(DataBaseHelper.BoletosPagos.TABELA, null, valores);
+    }
+
+
+
+
 
 
     private BoletoVencido criarBoletoVencido(Cursor cursor){
@@ -66,6 +90,7 @@ public class BoletoVencidoDAO {
         List<BoletoVencido> boletosVencidos = new ArrayList<BoletoVencido>();
         while(cursor.moveToNext()){
             BoletoVencido modelVencido = criarBoletoVencido(cursor);
+
             boletosVencidos.add(modelVencido);
 
         }
