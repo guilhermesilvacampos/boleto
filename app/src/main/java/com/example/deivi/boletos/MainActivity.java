@@ -10,6 +10,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 
 import java.util.Calendar;
@@ -18,7 +19,8 @@ import model.VerificaBoletoVencido;
 
 
 public class MainActivity extends Activity {
-    private AlarmManager alarmMgr;
+
+    Calendar calendar;
 
 
     @Override
@@ -27,20 +29,33 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        Calendar calendar = Calendar.getInstance();
+         calendar = Calendar.getInstance();
 
 
         calendar.setTimeInMillis(System.currentTimeMillis());
 
         calendar.set(Calendar.HOUR_OF_DAY, 14);
 
-        Intent tarefaIntent = new Intent(this, VerificaBoletoVencido.class);
-        PendingIntent tarefaPendingIntent = PendingIntent.getBroadcast(this,1234, tarefaIntent,0);
+        boolean alarmeAtivo = (PendingIntent.getBroadcast(this, 0, new Intent("ALARME_DISPARADO"), PendingIntent.FLAG_NO_CREATE) == null);
+
+        if(alarmeAtivo){
+            Log.i("Script", "Novo alarme");
+
+            Intent intent = new Intent("ALARME_DISPARADO");
+            PendingIntent p = PendingIntent.getBroadcast(this, 0, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, p);
+
+        }
+        else{
+            Log.i("Script", "Alarme já ativo");
+        }
 
         // With setInexactRepeating(), you have to use one of the AlarmManager interval
         // constants--in this case, AlarmManager.INTERVAL_DAY.
-             alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                   AlarmManager.INTERVAL_DAY, tarefaPendingIntent);
+
 
 
 

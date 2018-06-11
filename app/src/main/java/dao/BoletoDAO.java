@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -70,7 +71,7 @@ public class BoletoDAO {
             System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+model);
         }
         cursor.close();
-        System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA Bagaça"+boletos);
+        System.out.println("ESSAAAAAAAAAAAAAAAAAAAAAAAAA11111111 Bagaça"+boletos);
         return boletos;
 
     }
@@ -86,8 +87,9 @@ public class BoletoDAO {
             return getDatabase().update(DataBaseHelper.Usuarios.TABELA,valores,
                     "boletoId = ?", new String[]{boleto.getBoletoId().toString() });
         }
-
+        Log.i("1","INSERIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
         return getDatabase().insert(DataBaseHelper.Boletos.TABELA, null, valores);
+
     }
 
     public boolean removerBoleto(int id ){

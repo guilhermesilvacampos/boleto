@@ -24,6 +24,9 @@ package com.example.deivi.boletos;
 
         import java.util.Calendar;
 
+        import dao.BoletoDAO;
+        import model.Boleto;
+
 public class CadastrarBoleto extends Activity {
     private Button data;
     private EditText nome;
@@ -137,7 +140,7 @@ public class CadastrarBoleto extends Activity {
 
     public void onCadastrar(View view){
         String nome1 = nome.getText().toString();
-        int valor1 = Integer.parseInt(valor.getText().toString());
+        double valor1 = Double.parseDouble(valor.getText().toString());
         String descricao1 = descricao.getText().toString();
         String data1 = data_calendario;
 
@@ -148,6 +151,18 @@ public class CadastrarBoleto extends Activity {
         Toast.makeText(CadastrarBoleto.this,
                 "INFO = " + toast, Toast.LENGTH_LONG)
                 .show();
+
+        Boleto b = new Boleto();
+        b.setNome(nome1);
+        b.setValor(valor1);
+        b.setDescricao(descricao1);
+        b.setDataVencimento(data1);
+
+        BoletoDAO boletoDAO = new BoletoDAO(this);
+
+        boletoDAO.salvarBoleto(b);
+
+
 
 
     }
