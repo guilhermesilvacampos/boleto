@@ -69,7 +69,7 @@ public class Boleto {
     public Integer getBoletoId(){
         return boletoId;
     }
-    public void setBoletoId(){
+    public void setBoletoId(int boletoId){
         this.boletoId=boletoId;
     }
 }

@@ -56,14 +56,7 @@
 
 
             >
-            <EditText
-                android:id="@+id/idAlterar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
 
-                android:layout_marginTop="5dp"
-                android:text="id"
-                android:inputType="number" />
 
             <EditText
                 android:layout_marginTop="5dp"

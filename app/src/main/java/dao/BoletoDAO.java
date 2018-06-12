@@ -87,7 +87,7 @@ public class BoletoDAO {
         valores.put(DataBaseHelper.Boletos.DESCRICAO, boleto.getDescricao());
 
         if (boleto.getBoletoId() != null){
-            return getDatabase().update(DataBaseHelper.Usuarios.TABELA,valores,
+            return getDatabase().update(DataBaseHelper.Boletos.TABELA,valores,
                     "boletoId = ?", new String[]{boleto.getBoletoId().toString() });
         }
         Log.i("1","INSERIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");

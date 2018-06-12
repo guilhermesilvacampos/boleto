@@ -3,6 +3,7 @@ package adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,11 +52,17 @@ public class BoletoAdapter extends BaseAdapter{
 
         if (view==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_boletos_apagar, null);
+            view = inflater.inflate(R.layout.boletos_a_pagar, parent, false);
 
         }
         TextView txtNome = (TextView) view.findViewById(R.id.boletos_a_pagar_lista);
-        txtNome.setText(boletos.getNome ());
+        txtNome.setText(boletos.getNome());
+        TextView txtValor = (TextView) view.findViewById(R.id.boleto_valor);
+        txtValor.setText(String.valueOf (boletos.getValor ()));
+        TextView txtDataVencimento = (TextView) view.findViewById(R.id.boleto_dataVencimento);
+        txtDataVencimento.setText(boletos.getDataVencimento ());
+        TextView txtDescricao = (TextView) view.findViewById(R.id.boleto_Descricao);
+        txtDescricao.setText(boletos.getDescricao ());
 
         return view;
     }

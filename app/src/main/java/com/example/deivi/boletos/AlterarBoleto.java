@@ -24,9 +24,12 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import dao.BoletoDAO;
+import model.Boleto;
+
 public class AlterarBoleto extends Activity {
 
-    private EditText id;
+private int id;
     private Button data;
     private EditText nome;
     private EditText valor;
@@ -41,9 +44,14 @@ public class AlterarBoleto extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alterar_boleto);
 
-        id = findViewById(R.id.idAlterar);
+        setContentView(R.layout.activity_alterar_boleto);
+        Bundle b = new Bundle ();
+        Intent intent = getIntent ();
+        intent.getExtras ();
+        b = intent.getExtras ();
+        id = b.getInt ("id");
+
         data = findViewById(R.id.btnIserirDataAlterar);
         nome = findViewById(R.id.nomeAlterar);
         valor = findViewById(R.id.valorAlterar);
@@ -135,7 +143,9 @@ public class AlterarBoleto extends Activity {
 
 
     public void onAlterar(View view){
-        int idAlterar = Integer.parseInt(id.getText().toString());
+
+
+
         String nome1 = nome.getText().toString();
         int valor1 = Integer.parseInt(valor.getText().toString());
         String descricao1 = descricao.getText().toString();
@@ -143,7 +153,20 @@ public class AlterarBoleto extends Activity {
 
         String v = valor.getText().toString();
 
-        String toast = idAlterar+"-"+nome1 + "-" + v + "-" + descricao1+ "-"+data1;
+        Boleto boleto = new Boleto();
+        boleto.setBoletoId (id);
+        boleto.setNome(nome1);
+        boleto.setValor(valor1);
+        boleto.setDescricao(descricao1);
+        boleto.setDataVencimento(data1);
+
+
+
+        BoletoDAO boletoDAO = new BoletoDAO(this);
+        boletoDAO.salvarBoleto (boleto);
+
+
+        String toast = nome1 + "-" + v + "-" + descricao1+ "-"+data1;
 
         Toast.makeText(AlterarBoleto.this,
                 "INFO = " + toast, Toast.LENGTH_LONG)

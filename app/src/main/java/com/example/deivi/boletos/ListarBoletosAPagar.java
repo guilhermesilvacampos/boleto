@@ -56,11 +56,14 @@ public class ListarBoletosAPagar extends Activity implements
         int id = boleto_a_pagarList.get(idposicao).getBoletoId();
         switch (which){
             case 0:
-                Intent intent = new Intent(this, CadastrarBoleto.class);
-                intent.putExtra("BOLETO_ID", id);
+                Bundle bundle = new Bundle ();
+                bundle.putInt ("id", id);
+                Intent intent = new Intent(this, AlterarBoleto.class);
+                intent.putExtras (bundle);
                 startActivity(intent);
                 break;
             case 1:
+                Log.i ("1","OOOOOOOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUUU");
                 alertConfirmacao.show();
                 break;
 
@@ -70,6 +73,7 @@ public class ListarBoletosAPagar extends Activity implements
                 lista.invalidateViews();
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
+                Log.i ("1","OOOOOOOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUUU1111111111");
                 alertConfirmacao.dismiss();
                 break;
         }
