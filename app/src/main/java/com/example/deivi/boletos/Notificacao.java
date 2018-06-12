@@ -14,6 +14,7 @@ private int mId = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

@@ -1,28 +1,25 @@
 package model;
 
-import android.app.NotificationManager;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
 
 import java.util.Calendar;
 import java.util.List;
-import android.app.Activity;
+
 import android.util.Log;
 import android.view.View;
 /**
  * Created by Guilherme on 10/06/2018.
  */
 import com.example.deivi.boletos.MainActivity;
-import com.example.deivi.boletos.Notificacao;
-import com.example.deivi.boletos.R;
-import com.example.deivi.boletos.MainActivity;
 
 import dao.BoletoDAO;
 
-public class VerificaBoletoVencido extends BroadcastReceiver {
+public class VerificaBoletoVencido extends BroadcastReceiver  {
     MainActivity m = new MainActivity();
+
 
 View view;
     @Override
@@ -41,11 +38,9 @@ View view;
 
         Log.i ("1",list.toString () );
 
-        if (list.isEmpty()) {
-           Intent in = new Intent ();
+        if (!(list == null)) {
 
-
-
+//m.gerarNotificacao ();
         }
 
     }
