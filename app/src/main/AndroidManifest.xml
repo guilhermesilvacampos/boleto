@@ -32,6 +32,7 @@
         <activity android:name=".Usuarios" />
         <activity android:name=".CadUsuarioActivity" />
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".Notificacao"/>
 
         
         <receiver android:name="model.VerificaBoletoVencido">

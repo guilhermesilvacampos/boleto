@@ -42,7 +42,7 @@ View view;
         Log.i ("1",list.toString () );
 
         if (list.isEmpty()) {
-           Intent i = new Intent (this, Notificacao.class);
+           Intent in = new Intent ();
 
 
 
