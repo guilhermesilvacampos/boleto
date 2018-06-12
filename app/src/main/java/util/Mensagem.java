@@ -17,6 +17,9 @@ public class Mensagem {
         Toast.makeText(activity,mensagem, Toast.LENGTH_LONG).show();
 
     }
+
+
+
     public static void addMsgOk(Activity activity, String titulo, String msg, int icone){
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle(titulo);
@@ -39,7 +42,8 @@ public class Mensagem {
     public static AlertDialog criarAlertDialog (Activity activity){
         final CharSequence[] items={
                 "Editar",
-                "Excluir"
+                "Excluir",
+                "Adicionar aos pagos"
         };
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Opções");

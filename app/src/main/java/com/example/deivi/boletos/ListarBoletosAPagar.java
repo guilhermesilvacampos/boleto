@@ -45,7 +45,7 @@ public class ListarBoletosAPagar extends Activity implements
         boletoList    = boletoDAO.listBoletos();
         boletoAdapter= new BoletoAdapter(this, boletoList);
 
-        lista = (ListView) findViewById(R.id.Lista_Boletos_Apagar);
+        lista = (ListView) findViewById(R.id.lv_boletos);
         lista.setAdapter(boletoAdapter);
 
         lista.setOnItemClickListener(this);
@@ -62,12 +62,13 @@ Log.i("4","OUUUUUUUUUUUUUUUUUUUUUUUUUUU"+idposicao);
         switch (which){
             case 0:
                 Intent intent = new Intent(this, CadastrarBoleto.class);
-                intent.putExtra("FUNC_ID", id);
+                intent.putExtra("boletoId", id);
                 startActivity(intent);
                 break;
             case 1:
                 alertConfirmacao.show();
                 break;
+           
             case DialogInterface.BUTTON_POSITIVE:
                 boletoList.remove(idposicao);
                 boletoDAO.removerBoleto(id);
