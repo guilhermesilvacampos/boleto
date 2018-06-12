@@ -68,7 +68,7 @@ Log.i("4","OUUUUUUUUUUUUUUUUUUUUUUUUUUU"+idposicao);
             case 1:
                 alertConfirmacao.show();
                 break;
-           
+
             case DialogInterface.BUTTON_POSITIVE:
                 boletoList.remove(idposicao);
                 boletoDAO.removerBoleto(id);
