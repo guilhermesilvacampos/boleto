@@ -50,7 +50,7 @@ public class BoletoPagoAdapter extends BaseAdapter{
 
             }
 
-            TextView txtNome = (TextView) view.findViewById(R.id.Lista_Boletos_Pagos);
+            TextView txtNome = (TextView) view.findViewById(R.id.boletos_pagos_lista);
             txtNome.setText(boletos.getNome());
             return view;
         }

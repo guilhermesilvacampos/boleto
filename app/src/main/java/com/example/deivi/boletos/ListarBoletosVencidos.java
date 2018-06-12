@@ -45,7 +45,7 @@ public class ListarBoletosVencidos extends Activity implements
         boletoVencidoList    = boletoPagoDAO.listBoletosPagos();
         boletoVencidoAdapter= new BoletoVencidoAdapter(this, boletoVencidoList);
 
-        lista = (ListView) findViewById(R.id.Lista_Boletos_Apagar);
+        lista = (ListView) findViewById(R.id.lv_boletos_vencidos);
         lista.setAdapter(boletoVencidoAdapter);
 
         lista.setOnItemClickListener(this);

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/plainbluewallpaper7"
     tools:context="com.example.deivi.boletos.ListarBoletosAPagar"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
 
         <ListView

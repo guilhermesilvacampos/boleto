@@ -52,7 +52,7 @@ public class BoletoVencidoAdapter extends BaseAdapter{
 
         }
 
-        TextView txtNome = (TextView) view.findViewById(R.id.Lista_Boletos_Vencidos);
+        TextView txtNome = (TextView) view.findViewById(R.id.boletos_vencidos_lista);
         txtNome.setText(boletos.getNome());
         return view;
     }

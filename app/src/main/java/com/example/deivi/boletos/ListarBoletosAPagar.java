@@ -24,7 +24,7 @@ public class ListarBoletosAPagar extends Activity implements
 
 
     private ListView lista;
-    private List<Boleto> boletoList;
+    private List<Boleto> boleto_a_pagarList;
     private BoletoAdapter boletoAdapter;
     private BoletoDAO boletoDAO;
 
@@ -42,8 +42,8 @@ public class ListarBoletosAPagar extends Activity implements
         alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
 
         boletoDAO    = new BoletoDAO(this);
-        boletoList    = boletoDAO.listBoletos();
-        boletoAdapter= new BoletoAdapter(this, boletoList);
+        boleto_a_pagarList   = boletoDAO.listBoletos();
+        boletoAdapter= new BoletoAdapter(this, boleto_a_pagarList);
 
         lista = (ListView) findViewById(R.id.lv_boletos_a_pagar);
         lista.setAdapter(boletoAdapter);
@@ -53,16 +53,11 @@ public class ListarBoletosAPagar extends Activity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-Log.i("4","OUUUUUUUUUUUUUUUUUUUUUUUUUUU"+idposicao);
-
-        int id = boletoList.get(idposicao).getBoletoId();
-
-        Log.i("3","EIIIIIIIIIIIIIIIIIIIIIIIII"+id);
-
+        int id = boleto_a_pagarList.get(idposicao).getBoletoId();
         switch (which){
             case 0:
                 Intent intent = new Intent(this, CadastrarBoleto.class);
-                intent.putExtra("boletoId", id);
+                intent.putExtra("BOLETO_ID", id);
                 startActivity(intent);
                 break;
             case 1:
@@ -70,7 +65,7 @@ Log.i("4","OUUUUUUUUUUUUUUUUUUUUUUUUUUU"+idposicao);
                 break;
 
             case DialogInterface.BUTTON_POSITIVE:
-                boletoList.remove(idposicao);
+                boleto_a_pagarList.remove(idposicao);
                 boletoDAO.removerBoleto(id);
                 lista.invalidateViews();
                 break;
