@@ -45,7 +45,7 @@ public class ListarBoletosAPagar extends Activity implements
         boletoList    = boletoDAO.listBoletos();
         boletoAdapter= new BoletoAdapter(this, boletoList);
 
-        lista = (ListView) findViewById(R.id.lv_boletos);
+        lista = (ListView) findViewById(R.id.lv_boletos_a_pagar);
         lista.setAdapter(boletoAdapter);
 
         lista.setOnItemClickListener(this);
