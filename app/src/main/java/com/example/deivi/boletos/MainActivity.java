@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
     // Set the alarm to start at approximately 2:00 pm
 
 
-    Calendar calendar = Calendar.getInstance();
+   /* Calendar calendar = Calendar.getInstance();
 
 calendar.setTimeInMillis(System.currentTimeMillis());
 
@@ -65,7 +65,7 @@ calendar.setTimeInMillis(System.currentTimeMillis());
 
 //Definir o alarme para acontecer todos os dias às 10 horas
 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-    AlarmManager.INTERVAL_DAY, tarefaPendingIntent);
+    AlarmManager.INTERVAL_DAY, tarefaPendingIntent);*/
 
 
 

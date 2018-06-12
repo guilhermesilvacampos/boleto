@@ -34,7 +34,7 @@ public class VerificaBoletoVencido extends BroadcastReceiver {
         List list = b.listBoletosVirouVencido(data);
 
         if (!list.isEmpty()) {
-            m.notificação();
+           // m.notificação();
 
 
         }
