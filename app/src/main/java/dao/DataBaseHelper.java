@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private static final String BANCO_DADOS = "boletos";
+    private static final String BANCO_DADOS = "BD_Boletos7";
     private static final int VERSAO =1;
 
     public DataBaseHelper(Context context){
@@ -77,7 +77,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static class BoletosPagos{
-        public static final String TABELA ="boletos";
+        public static final String TABELA ="boletosPagos";
         public static final String NOME_BOLETO="nomeBoleto";
         public static final String VALOR = "valor";
         public static final String DESCRICAO="descricao";
@@ -92,17 +92,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static class BoletosVencidos{
-        public static final String TABELA ="boletos";
+        public static final String TABELA ="boletosVencidos";
         public static final String NOME_BOLETO="nomeBoleto";
         public static final String VALOR = "valor";
         public static final String DATA_VENCIMENTO = "dataVencimento";
         public static final String DESCRICAO="descricao";
-        public static final String DIAS_VENCIDOS="diasVencidos";
-        public static final String BOLETOID="boletoId";
+
+        public static final String BOLETOID="boletoVencidoId";
 
         public static final String[] COLUNAS = new String[]{
 
-                NOME_BOLETO,VALOR,DATA_VENCIMENTO,DESCRICAO,DIAS_VENCIDOS, BOLETOID
+                NOME_BOLETO,VALOR,DATA_VENCIMENTO,DESCRICAO, BOLETOID
         };
 
     }

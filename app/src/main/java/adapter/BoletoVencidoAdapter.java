@@ -19,12 +19,12 @@ import model.BoletoVencido;
 public class BoletoVencidoAdapter extends BaseAdapter{
 
     private Context context;
-    private List<BoletoPago> lista;
+    private List<BoletoVencido> lista;
 
 
-    public BoletoVencidoAdapter(Context ctx, List<BoletoPago> boletos){
+    public BoletoVencidoAdapter(Context ctx, List<BoletoVencido> boletosVencido){
         this.context = ctx;
-        this.lista = boletos;
+        this.lista = boletosVencido;
 
     }
     @Override
@@ -44,16 +44,23 @@ public class BoletoVencidoAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        BoletoPago boletos = lista.get(position);
+        BoletoVencido boletosVencido = lista.get(position);
 
         if (view==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_boletos_vencidos, null);
+            view = inflater.inflate(R.layout.boletos_vencidos, null);
 
         }
 
-        TextView txtNome = (TextView) view.findViewById(R.id.boletos_vencidos_lista);
-        txtNome.setText(boletos.getNome());
+        TextView txtNomeVencido = (TextView) view.findViewById(R.id.boletos_a_pagar_lista_Vencido);
+        System.out.println(boletosVencido.getNome_boleto_vencido()+"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+        txtNomeVencido.setText(boletosVencido.getNome_boleto_vencido());
+        TextView txtValorVencido = (TextView) view.findViewById(R.id.boleto_valor_Vencido);
+        txtValorVencido.setText(String.valueOf (boletosVencido.getValor_boleto_vencido ()));
+        TextView txtDataVencimentoVencido = (TextView) view.findViewById(R.id.boleto_dataVencimento_Vencido);
+        txtDataVencimentoVencido.setText(boletosVencido.getDataVencimento_boleto_vencido());
+        TextView txtDescricaoVencido = (TextView) view.findViewById(R.id.boleto_Descricao_Vencido);
+        txtDescricaoVencido.setText(boletosVencido.getDescricao_boleto_vencido ());
         return view;
     }
 }

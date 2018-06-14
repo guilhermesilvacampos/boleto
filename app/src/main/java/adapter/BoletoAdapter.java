@@ -64,6 +64,12 @@ public class BoletoAdapter extends BaseAdapter{
         TextView txtDescricao = (TextView) view.findViewById(R.id.boleto_Descricao);
         txtDescricao.setText(boletos.getDescricao ());
 
+
+
+
+
+
+
         return view;
     }
 }

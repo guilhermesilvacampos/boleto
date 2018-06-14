@@ -6,31 +6,20 @@ package model;
 
 public class BoletoVencido extends Boleto {
 
+public BoletoVencido(){
+
+}
 
 
-
-    public BoletoVencido(String nome_boleto_vencido, double valor_boleto_vencido, double dataVencimento_boleto_vencido, String descricao_boleto_vencido, int boleto_id) {
+    public BoletoVencido(String nome_boleto_vencido, double valor_boleto_vencido, String dataVencimento_boleto_vencido, String descricao_boleto_vencido, Integer boleto_id_vencido) {
+        this.nome_boleto_vencido = nome_boleto_vencido;
         this.valor_boleto_vencido = valor_boleto_vencido;
-        this.dataVencimento_boleto_vencido = dataVencimento_boleto_vencido;
+        this.dataVencimento_boleto_vencido=dataVencimento_boleto_vencido;
         this.descricao_boleto_vencido = descricao_boleto_vencido;
-
-        this.boleto_id = boleto_id;
-        this.nome_boleto_vencido = nome_boleto_vencido;
+        this.boleto_id_vencido = boleto_id_vencido;
     }
+
     private double valor_boleto_vencido;
-    private double dataVencimento_boleto_vencido;
-    private String descricao_boleto_vencido;
-    private int diasVencidos;
-    private int boleto_id;
-    private String nome_boleto_vencido;
-
-    public String getNome_boleto_vencido() {
-        return nome_boleto_vencido;
-    }
-
-    public void setNome_boleto_vencido(String nome_boleto_vencido) {
-        this.nome_boleto_vencido = nome_boleto_vencido;
-    }
 
     public double getValor_boleto_vencido() {
         return valor_boleto_vencido;
@@ -40,11 +29,11 @@ public class BoletoVencido extends Boleto {
         this.valor_boleto_vencido = valor_boleto_vencido;
     }
 
-    public double getDataVencimento_boleto_vencido() {
+    public String getDataVencimento_boleto_vencido() {
         return dataVencimento_boleto_vencido;
     }
 
-    public void setDataVencimento_boleto_vencido(double dataVencimento_boleto_vencido) {
+    public void setDataVencimento_boleto_vencido(String dataVencimento_boleto_vencido) {
         this.dataVencimento_boleto_vencido = dataVencimento_boleto_vencido;
     }
 
@@ -56,22 +45,28 @@ public class BoletoVencido extends Boleto {
         this.descricao_boleto_vencido = descricao_boleto_vencido;
     }
 
-    public int getDiasVencidos() {
-        return diasVencidos;
+    public Integer getBoleto_id_vencido() {
+        return boleto_id_vencido;
     }
 
-    public void setDiasVencidos(int diasVencidos) {
-        this.diasVencidos = diasVencidos;
+    public void setBoleto_id_vencido(Integer boleto_id_vencido) {
+        this.boleto_id_vencido = boleto_id_vencido;
     }
 
-
-
-    public int getBoleto_id() {
-        return boleto_id;
+    public String getNome_boleto_vencido() {
+        return nome_boleto_vencido;
     }
 
-    public void setBoleto_id(int boleto_id) {
-        this.boleto_id = boleto_id;
+    public void setNome_boleto_vencido(String nome_boleto_vencido) {
+        this.nome_boleto_vencido = nome_boleto_vencido;
     }
+
+    private String dataVencimento_boleto_vencido;
+    private String descricao_boleto_vencido;
+    //private int diasVencidos;
+    private Integer boleto_id_vencido;
+    private String nome_boleto_vencido;
+
+
 }
 

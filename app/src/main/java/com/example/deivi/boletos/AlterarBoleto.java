@@ -25,7 +25,9 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import dao.BoletoDAO;
+import dao.BoletoVencidoDAO;
 import model.Boleto;
+import model.BoletoVencido;
 
 public class AlterarBoleto extends Activity {
 
@@ -159,6 +161,18 @@ private int id;
         boleto.setValor(valor1);
         boleto.setDescricao(descricao1);
         boleto.setDataVencimento(data1);
+
+
+        BoletoVencido vencido = new BoletoVencido();
+
+        vencido.setBoleto_id_vencido(id);
+        vencido.setDataVencimento_boleto_vencido(nome1);
+        vencido.setDescricao_boleto_vencido(descricao1);
+        vencido.setNome_boleto_vencido(nome1);
+        vencido.setValor_boleto_vencido(valor1);
+
+        BoletoVencidoDAO boletoVencidoDAO = new BoletoVencidoDAO(this);
+        boletoVencidoDAO.salvarBoletoVencido(vencido);
 
 
 

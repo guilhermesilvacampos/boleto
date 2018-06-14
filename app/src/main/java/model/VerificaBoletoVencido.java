@@ -55,11 +55,13 @@ View view;
 
         Log.i("1", list.toString());
 
-        if (!(list == null)) {
+        if (!list.isEmpty()) {
 
             Log.i("Script", "-> Alarme");
 
             gerarNotificacao(context, new Intent(context, MainActivity.class), "Nova mensagem", "Boleto em atraso", "Você tem um boleto em atraso!");
+        }else {
+            Log.i("AQUI","NÂO TEM BOLETO EM ATRASO!");
         }
     }
 

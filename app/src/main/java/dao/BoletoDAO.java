@@ -117,26 +117,50 @@ public class BoletoDAO {
 
 
 
-    public List<Boleto> listBoletosVirouVencido(String data){
+    public List<BoletoVencido> listBoletosVirouVencido(String data){
 
         BoletoVencidoDAO b = new BoletoVencidoDAO(c);
 
+Log.i("EIIIIIIIIIII","DATAAAAAAAAAAAAAAAAA"+new String[]{(data)});
         Cursor cursor = getDatabase().query(DataBaseHelper.Boletos.TABELA,
-                DataBaseHelper.Boletos.COLUNAS, "dataVencimento =?", null, null, null,null);
+                DataBaseHelper.Boletos.COLUNAS, "dataVencimento <=?",new String[]{(data)}, null, null,null);
+
+        List<BoletoVencido> boletosVencidos = new ArrayList<BoletoVencido>();
 
 
-        List<Boleto> boletos = new ArrayList<Boleto>();
         while(cursor.moveToNext()){
             Boleto model = criarBoleto(cursor);
-            b.salvarBoletoVencido(model);
-            boletos.add(model);
+
+           BoletoVencido vencido = new BoletoVencido();
+
+            vencido.setBoleto_id_vencido(model.getBoletoId());
+            vencido.setDataVencimento_boleto_vencido(model.getDataVencimento());
+            vencido.setDescricao_boleto_vencido(model.getDescricao());
+            vencido.setNome_boleto_vencido(model.getNome());
+            vencido.setValor_boleto_vencido(model.getValor());
+
+            System.out.println(model.getBoletoId());
+            System.out.println(model.getDataVencimento());
+            System.out.println(model.getDescricao());
+            System.out.println(model.getNome());
+            System.out.println(model.getValor());
+
+            System.out.println("VENCIDOOOOOOOOOOOOOOOOODDDDDD"+vencido.getBoleto_id_vencido());
+
+           // if (vencido.getDataVencimento_boleto_vencido()!=data) {
+                b.salvarBoletoVencido(vencido);
+
+            boletosVencidos.add(vencido);
+                removerBoleto(model.getBoletoId());
+           // }
+           // boletos.add(model);
 
 
         }
         cursor.close();
-
-
-        return boletos;
+boolean i = boletosVencidos.isEmpty();
+        Log.i("EIIIIIIIIIII","DATAAAAAAAAAAAAAAAAA"+boletosVencidos.toString()+"-------------"+i);
+        return boletosVencidos;
 
     }
 

@@ -22,8 +22,10 @@ public class BoletoVencidoDAO {
 
     private DataBaseHelper dataBaseHelper;
     private SQLiteDatabase database;
+    Context c;
 
     public BoletoVencidoDAO(Context context){
+        c= context;
         dataBaseHelper = new DataBaseHelper(context);
     }
 
@@ -36,20 +38,21 @@ public class BoletoVencidoDAO {
     }
 
 
-    public long salvarBoletoVencido(Boleto boletos){
+    public long salvarBoletoVencido(BoletoVencido boletosVencido){
         ContentValues valores = new ContentValues();
-        valores.put(DataBaseHelper.BoletosVencidos.NOME_BOLETO, boletos.getNome());
-        valores.put(DataBaseHelper.BoletosVencidos.VALOR, boletos.getValor());
-        valores.put(DataBaseHelper.BoletosVencidos.DESCRICAO, boletos.getDescricao());
-        valores.put(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO, boletos.getDataVencimento());
+        valores.put(DataBaseHelper.BoletosVencidos.NOME_BOLETO, boletosVencido.getNome_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.VALOR, boletosVencido.getValor_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.DESCRICAO, boletosVencido.getDescricao_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO, boletosVencido.getDataVencimento_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.BOLETOID,boletosVencido.getBoleto_id_vencido());
 
 
-        if (boletos.getBoletoId() != null){
+        if (boletosVencido.getBoleto_id_vencido() != null){
             return getDatabase().update(DataBaseHelper.BoletosVencidos.TABELA,valores,
-                    "boletoId = ?", new String[]{boletos.getBoletoId().toString() });
+                    "  boletoVencidoId=?", new String[]{boletosVencido.getBoleto_id_vencido().toString() });
         }
 
-        return getDatabase().insert(DataBaseHelper.BoletosPagos.TABELA, null, valores);
+        return getDatabase().insert(DataBaseHelper.BoletosVencidos.TABELA, null, valores);
     }
 
 
@@ -64,7 +67,7 @@ public class BoletoVencidoDAO {
 
                 cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.NOME_BOLETO)),
                         cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.VALOR)),
-                        cursor.getDouble(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO)),
+                        cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO)),
                         cursor.getString(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.DESCRICAO)),
                         cursor.getInt(cursor.getColumnIndex(DataBaseHelper.BoletosVencidos.BOLETOID))
 
@@ -84,14 +87,14 @@ public class BoletoVencidoDAO {
 
     public List<BoletoVencido> listBoletosVencidos(){
 
-        Cursor cursor = getDatabase().query(DataBaseHelper.BoletosPagos.TABELA,
+        Cursor cursor = getDatabase().query(DataBaseHelper.BoletosVencidos.TABELA,
                 DataBaseHelper.BoletosVencidos.COLUNAS, null, null, null, null,null);
 
 
         List<BoletoVencido> boletosVencidos = new ArrayList<BoletoVencido>();
         while(cursor.moveToNext()){
             BoletoVencido modelVencido = criarBoletoVencido(cursor);
-
+System.out.println("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" + modelVencido.getBoleto_id_vencido());
             boletosVencidos.add(modelVencido);
 
         }
@@ -100,7 +103,11 @@ public class BoletoVencidoDAO {
         return boletosVencidos;
     }
 
-
+    public boolean removerBoletoVencido(int id ){
+System.out.println("oiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"+Integer.toString(id));
+        return getDatabase().delete(DataBaseHelper.BoletosVencidos.TABELA,
+                "boletoVencidoId = ?" , new String[]{ Integer.toString(id) }) > 0;
+    }
 
 
 }
