@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Boleto;
 import model.BoletoPago;
 import model.BoletoVencido;
 
@@ -52,6 +53,9 @@ public class BoletoPagoDAO {
     }
 
 
+
+
+
     public List<BoletoPago> listBoletosPagos(){
 
         Cursor cursor = getDatabase().query(DataBaseHelper.BoletosPagos.TABELA,
@@ -71,28 +75,24 @@ public class BoletoPagoDAO {
 
     public long salvarBoletoPago(BoletoPago boletosPagos){
         ContentValues valores = new ContentValues();
-        valores.put(DataBaseHelper.BoletosPagos.NOME_BOLETO, boletosPagos.getNome());
-        valores.put(DataBaseHelper.BoletosPagos.VALOR, boletosPagos.getValor());
-        valores.put(DataBaseHelper.BoletosPagos.DESCRICAO, boletosPagos.getDescricao());
-        valores.put(DataBaseHelper.BoletosPagos.DATA_PAGAMENTO, boletosPagos.getDataPagamento());
+        valores.put(DataBaseHelper.BoletosPagos.NOME_BOLETO, boletosPagos.getNomeBoletoPago());
+        valores.put(DataBaseHelper.BoletosPagos.VALOR, boletosPagos.getValorBoletoPago());
+        valores.put(DataBaseHelper.BoletosPagos.DESCRICAO, boletosPagos.getDescricaoBoletoPago());
+        valores.put(DataBaseHelper.BoletosPagos.DATA_PAGAMENTO, boletosPagos.getDataPagamentoBoletoPago());
+        valores.put(DataBaseHelper.BoletosPagos.BOLETOID, boletosPagos.getBoletoIdBoletoPago());
 
-
-        if (boletosPagos.getBoletoId() != null){
-            return getDatabase().update(DataBaseHelper.BoletosPagos.TABELA,valores,
-                    "boletoId = ?", new String[]{boletosPagos.getBoletoId().toString() });
-        }
 
         return getDatabase().insert(DataBaseHelper.BoletosPagos.TABELA, null, valores);
     }
 
     public boolean removerBoletoPago(int id ){
         return getDatabase().delete(DataBaseHelper.BoletosPagos.TABELA,
-                "boletoId = ?" , new String[]{ Integer.toString(id) }) > 0;
+                "boletoIdBoletoPago = ?" , new String[]{ Integer.toString(id) }) > 0;
     }
 
     public BoletoPago buscarBoletoPago(int id){
         Cursor cursor = getDatabase().query(DataBaseHelper.BoletosPagos.TABELA,
-                DataBaseHelper.BoletosPagos.COLUNAS, "boletoId = ?", new String[]{Integer.toString(id)},null, null,null);
+                DataBaseHelper.BoletosPagos.COLUNAS, "boletoIdBoletoPago = ?", new String[]{Integer.toString(id)},null, null,null);
 
         if (cursor.moveToNext()){
             BoletoPago model = criarBoletoPago(cursor);
@@ -103,6 +103,20 @@ public class BoletoPagoDAO {
         return null;
     }
 
+
+public long updateBoletoPago(BoletoPago boletosPagos){
+    ContentValues valores = new ContentValues();
+    valores.put(DataBaseHelper.BoletosPagos.NOME_BOLETO, boletosPagos.getNomeBoletoPago());
+    valores.put(DataBaseHelper.BoletosPagos.VALOR, boletosPagos.getValorBoletoPago());
+    valores.put(DataBaseHelper.BoletosPagos.DESCRICAO, boletosPagos.getDescricaoBoletoPago());
+    valores.put(DataBaseHelper.BoletosPagos.DATA_PAGAMENTO, boletosPagos.getDataPagamentoBoletoPago());
+
+
+
+        return getDatabase().update(DataBaseHelper.BoletosPagos.TABELA,valores,
+                "boletoIdBoletoPago = ?", new String[]{boletosPagos.getBoletoIdBoletoPago().toString() });
+
+}
 
 
 

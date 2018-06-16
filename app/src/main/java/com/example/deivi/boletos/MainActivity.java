@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 
         calendar.setTimeInMillis(System.currentTimeMillis());
 
-        calendar.set(Calendar.HOUR_OF_DAY, 6, 13, 17,38 , 10 );
+        calendar.set(Calendar.HOUR_OF_DAY, 13 );
 
         // With setInexactRepeating(), you have to use one of the AlarmManager interval
         // constants--in this case, AlarmManager.INTERVAL_DAY.

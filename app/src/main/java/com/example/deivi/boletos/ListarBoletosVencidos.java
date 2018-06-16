@@ -37,26 +37,33 @@ public class ListarBoletosVencidos extends Activity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1");
+
         setContentView(R.layout.activity_boletos_vencidos);
 
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2");
         alertDialog      = Mensagem.criarAlertDialog(this);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3");
         alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
-
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4");
         boletoVencidoDAO    = new BoletoVencidoDAO(this);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5");
         boletoVencidoList    = boletoVencidoDAO.listBoletosVencidos();
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6");
         boletoVencidoAdapter= new BoletoVencidoAdapter(this, boletoVencidoList);
-
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7");
         lista = (ListView) findViewById(R.id.lv_boletos_vencidos);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8");
         lista.setAdapter(boletoVencidoAdapter);
-
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa9");
         lista.setOnItemClickListener(this);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa10");
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
         boolean k = boletoVencidoList.isEmpty();
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAEEEEEEEEEEEEEEEEEEEE"+k + " " + boletoVencidoList.get(idposicao1).getBoleto_id_vencido().toString() +boletoVencidoList.get(idposicao1).getNome_boleto_vencido().toString() );
-
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAEEEEEEEEEEEEEEEEEEEE"+k + " " + boletoVencidoList.get(idposicao1).getBoleto_id_vencido().toString() +boletoVencidoList.get(idposicao1).getBoleto_id_vencido().toString() );
 
         int id = boletoVencidoList.get(idposicao1).getBoleto_id_vencido();
 System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+id);

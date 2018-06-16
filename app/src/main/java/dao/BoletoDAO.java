@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import model.Boleto;
+import model.BoletoPago;
 import model.BoletoVencido;
 
 
@@ -117,6 +118,8 @@ public class BoletoDAO {
 
 
 
+
+
     public List<BoletoVencido> listBoletosVirouVencido(String data){
 
         BoletoVencidoDAO b = new BoletoVencidoDAO(c);
@@ -164,6 +167,28 @@ boolean i = boletosVencidos.isEmpty();
 
     }
 
+    public void insereBoletoPago(int id,String data){
+        Cursor cursor = getDatabase().query(DataBaseHelper.Boletos.TABELA,
+                DataBaseHelper.Boletos.COLUNAS, "boletoId = ?", new String[]{Integer.toString(id)},null, null,null);
+
+        if (cursor.moveToNext()){
+            Boleto model = criarBoleto(cursor);
+            cursor.close();
+            BoletoPago pago = new BoletoPago();
+            pago.setNomeBoletoPago(model.getNome());
+            pago.setValorBoletoPago(model.getValor());
+            pago.setDescricaoBoletoPago(model.getDescricao());
+            pago.setDataPagamentoBoletoPago(data);
+            pago.setBoletoIdBoletoPago(model.getBoletoId());
+
+            BoletoPagoDAO boletoPagoDAO = new BoletoPagoDAO(c);
+            boletoPagoDAO.salvarBoletoPago(pago);
+
+
+        }
+
+
+    }
 
 
 

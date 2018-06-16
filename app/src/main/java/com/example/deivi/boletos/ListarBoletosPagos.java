@@ -53,12 +53,15 @@ public class ListarBoletosPagos extends Activity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        int id = boletoPagoList.get(idposicao).getBoletoId();
+        int id = boletoPagoList.get(idposicao).getBoletoIdBoletoPago();
 
         switch (which){
             case 0:
-                Intent intent = new Intent(this, CadastrarBoleto.class);
-                intent.putExtra("FUNC_ID", id);
+                Bundle bundle = new Bundle ();
+                System.out.println("IDDDDDDDDDDDDDDDDDDDDDD"+id);
+                bundle.putInt ("id", id);
+                Intent intent = new Intent(this, AlterarBoleto.class);
+                intent.putExtras (bundle);
                 startActivity(intent);
                 break;
             case 1:

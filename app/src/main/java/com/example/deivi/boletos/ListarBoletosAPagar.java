@@ -9,9 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import java.util.Calendar;
 import java.util.List;
 import adapter.BoletoAdapter;
 import dao.BoletoDAO;
+import dao.BoletoPagoDAO;
 import model.Boleto;
 import util.Mensagem;
 
@@ -28,6 +31,8 @@ public class ListarBoletosAPagar extends Activity implements
     private BoletoAdapter boletoAdapter;
     private BoletoDAO boletoDAO;
 
+
+private String data;
     private int idposicao;
 
 
@@ -37,6 +42,7 @@ public class ListarBoletosAPagar extends Activity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boletos_apagar);
+
 
         alertDialog      = Mensagem.criarAlertDialog(this);
         alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
@@ -49,11 +55,19 @@ public class ListarBoletosAPagar extends Activity implements
         lista.setAdapter(boletoAdapter);
 
         lista.setOnItemClickListener(this);
+
+        Calendar c = Calendar.getInstance();
+        int ano = c.get(Calendar.YEAR);
+        int mes = c.get(Calendar.MONTH) + 1;
+        int dia = c.get(Calendar.DAY_OF_MONTH);
+
+        data = dia + "/" + mes + "/" + ano;
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
         int id = boleto_a_pagarList.get(idposicao).getBoletoId();
+
         switch (which){
             case 0:
                 Bundle bundle = new Bundle ();
@@ -76,6 +90,14 @@ public class ListarBoletosAPagar extends Activity implements
                 Log.i ("1","OOOOOOOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUUU1111111111");
                 alertConfirmacao.dismiss();
                 break;
+
+            case 2:
+                Log.i ("1","KKKKKKKKKKKKKKKKKKKKKKKKKKK");
+
+                boletoDAO.insereBoletoPago(id,data);
+                boletoDAO.removerBoleto(id);
+                break;
+
         }
     }
 

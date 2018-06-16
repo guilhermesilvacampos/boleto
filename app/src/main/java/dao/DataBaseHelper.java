@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private static final String BANCO_DADOS = "BD_Boletos7";
+    private static final String BANCO_DADOS = "BD_Boletos11";
     private static final int VERSAO =1;
 
     public DataBaseHelper(Context context){
@@ -22,13 +22,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table boletos(nomeBoleto text not null, valor double not null, dataVencimento Date,"+"" +
                 " descricao text, boletoId integer primary key autoincrement)");
         //tabela boletosPagos
-        db.execSQL("create table boletosPagos(nomeBoleto text not null, valor double not null,"+"" +
-                " descricao text, dataPagamento Date, boletoPagoId integer references boletos(boletoId))");
+        db.execSQL("create table boletosPagos(nomeBoletoPago text not null, valorBoletoPago double not null,"+"" +
+                " descricaoBoletoPago text, dataPagamentoBoletoPago Date, boletoIdBoletoPago integer references boletos(boletoId))");
 
 
         //tabela boletosVencidos
-        db.execSQL("create table boletosVencidos(nomeBoleto text not null, valor double not null, dataVencimento Date,"+"" +
-                " descricao text,  boletoVencidoId integer references boletos(boletoId))");
+        db.execSQL("create table boletosVencidos(nomeBoletoVencido text not null, valorBoletoVencido double not null, dataVencimentoBoletoVencido Date,"+"" +
+                " descricaoBoletoVencido text,  boletoVencidoId integer references boletos(boletoId))");
 
 
         //tabela de usuarios
@@ -78,11 +78,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static class BoletosPagos{
         public static final String TABELA ="boletosPagos";
-        public static final String NOME_BOLETO="nomeBoleto";
-        public static final String VALOR = "valor";
-        public static final String DESCRICAO="descricao";
-        public static final String DATA_PAGAMENTO="dataPagamento";
-        public static final String BOLETOID="boletoId";
+        public static final String NOME_BOLETO="nomeBoletoPago";
+        public static final String VALOR = "valorBoletoPago";
+        public static final String DESCRICAO="descricaoBoletoPago";
+        public static final String DATA_PAGAMENTO="dataPagamentoBoletoPago";
+        public static final String BOLETOID="boletoIdBoletoPago";
 
         public static final String[] COLUNAS = new String[]{
 
@@ -93,10 +93,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static class BoletosVencidos{
         public static final String TABELA ="boletosVencidos";
-        public static final String NOME_BOLETO="nomeBoleto";
-        public static final String VALOR = "valor";
-        public static final String DATA_VENCIMENTO = "dataVencimento";
-        public static final String DESCRICAO="descricao";
+        public static final String NOME_BOLETO="nomeBoletoVencido";
+        public static final String VALOR = "valorBoletoVencido";
+        public static final String DATA_VENCIMENTO = "dataVencimentoBoletoVencido";
+        public static final String DESCRICAO="descricaoBoletoVencido";
 
         public static final String BOLETOID="boletoVencidoId";
 

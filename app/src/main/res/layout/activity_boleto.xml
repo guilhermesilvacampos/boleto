@@ -9,44 +9,41 @@
 
     <Button
         android:id="@+id/btnBoletosAPagar"
-        android:layout_width="99dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
         android:onClick="onClickBoletosAPagar"
         android:text="A Pagar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnBoletosPagos"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:onClick="onClickBoletosPagos"
         android:text="Pagos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBoletosAPagar" />
 
     <Button
         android:id="@+id/btnBoletosVencidos"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
+
+        android:layout_marginBottom="56dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="onClickBoletosVencidos"
         android:text="Vencidos"
@@ -57,18 +54,17 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBoletosPagos"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="291dp"
+        android:layout_height="165dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:text="Listagem de Boletos"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:src="@drawable/imagemapprecovered"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

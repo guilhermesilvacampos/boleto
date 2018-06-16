@@ -6,64 +6,66 @@ package model;
 
 public class BoletoPago  {
 
-    private String nome;
-    private double valor;
-    private String dataPagamento;
-    private String descricao;
-    private int boletoId;
+    private String nomeBoletoPago;
+    private double valorBoletoPago;
+    private String dataPagamentoBoletoPago;
+    private String descricaoBoletoPago;
+    private int boletoIdBoletoPago;
 
+public BoletoPago(){
 
+    }
 
 
     public BoletoPago(String nome, double valor, String dataPagamento, String descricao, int boletoId){
-        this.setNome(nome);
-        this.setValor(valor);
-        this.setDescricao(descricao);
-        this.setDataPagamento(dataPagamento);
-        this.setBoletoId(boletoId);
+        this.nomeBoletoPago=nome;
+        this.valorBoletoPago=valor;
+        this.dataPagamentoBoletoPago=dataPagamento;
+        this.descricaoBoletoPago=descricao;
+        this.boletoIdBoletoPago=boletoId;
 
     }
 
 
-    public String getDataPagamento() {
-        return dataPagamento;
+    public String getDataPagamentoBoletoPago() {
+        return dataPagamentoBoletoPago;
     }
 
-    public void setDataPagamento(String dataPagamento) {
-        this.dataPagamento = dataPagamento;
+    public void setDataPagamentoBoletoPago(String dataPagamento) {
+        this.dataPagamentoBoletoPago = dataPagamento;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeBoletoPago() {
+        return nomeBoletoPago;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeBoletoPago(String nome) {
+        this.nomeBoletoPago = nome;
     }
 
-    public double getValor() {
-        return valor;
+    public double getValorBoletoPago() {
+        return valorBoletoPago;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValorBoletoPago(double valor) {
+        this.valorBoletoPago = valor;
     }
 
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoBoletoPago() {
+        return descricaoBoletoPago;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoBoletoPago(String descricao) {
+        this.descricaoBoletoPago = descricao;
     }
 
-    public Integer getBoletoId() {
-        return boletoId;
+    public Integer getBoletoIdBoletoPago() {
+        return boletoIdBoletoPago;
     }
 
-    public void setBoletoId(Integer boletoId) {
-        this.boletoId = boletoId;
+    public void setBoletoIdBoletoPago(Integer boletoId) {
+        this.boletoIdBoletoPago = boletoId;
     }
 
 

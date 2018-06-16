@@ -94,9 +94,9 @@
                 android:id="@+id/btnIserirDataAlterar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="145dp"
                 android:onClick="onInsereDataAlterar"
-                android:text="Data de Vencimento" />
+                android:text="Data" />
 
         </LinearLayout>
 

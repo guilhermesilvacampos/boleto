@@ -25,8 +25,10 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import dao.BoletoDAO;
+import dao.BoletoPagoDAO;
 import dao.BoletoVencidoDAO;
 import model.Boleto;
+import model.BoletoPago;
 import model.BoletoVencido;
 
 public class AlterarBoleto extends Activity {
@@ -162,22 +164,33 @@ private int id;
         boleto.setDescricao(descricao1);
         boleto.setDataVencimento(data1);
 
+        BoletoDAO boletoDAO = new BoletoDAO(this);
+        boletoDAO.salvarBoleto (boleto);
+
 
         BoletoVencido vencido = new BoletoVencido();
 
         vencido.setBoleto_id_vencido(id);
-        vencido.setDataVencimento_boleto_vencido(nome1);
+        vencido.setDataVencimento_boleto_vencido(data1);
         vencido.setDescricao_boleto_vencido(descricao1);
         vencido.setNome_boleto_vencido(nome1);
         vencido.setValor_boleto_vencido(valor1);
 
         BoletoVencidoDAO boletoVencidoDAO = new BoletoVencidoDAO(this);
-        boletoVencidoDAO.salvarBoletoVencido(vencido);
+        boletoVencidoDAO.updateBoletoVencido(vencido);
+
+        BoletoPago pago = new BoletoPago();
+
+        pago.setBoletoIdBoletoPago(id);
+        pago.setDataPagamentoBoletoPago(data1);
+        pago.setDescricaoBoletoPago(descricao1);
+        pago.setNomeBoletoPago(nome1);
+        pago.setValorBoletoPago(valor1);
+
+        BoletoPagoDAO boletoPagoDAO = new BoletoPagoDAO(this);
+        boletoPagoDAO.updateBoletoPago(pago);
 
 
-
-        BoletoDAO boletoDAO = new BoletoDAO(this);
-        boletoDAO.salvarBoleto (boleto);
 
 
         String toast = nome1 + "-" + v + "-" + descricao1+ "-"+data1;

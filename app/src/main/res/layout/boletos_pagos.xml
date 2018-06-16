@@ -5,17 +5,31 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/boletos_Pagos_listaBoletoPago"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/boletos_pagos_lista"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        />
+        android:text="Nome"
+        android:textSize="30dp" />
 
     <TextView
+        android:id="@+id/boleto_valorBoletoPago"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Valor"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/boleto_dataPagamentoBoletoPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vencimento"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/boleto_DescricaoBoletoPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descrição"
+        android:textSize="20dp" />
+
 
 </LinearLayout>

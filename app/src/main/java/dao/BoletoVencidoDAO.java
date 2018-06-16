@@ -46,13 +46,26 @@ public class BoletoVencidoDAO {
         valores.put(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO, boletosVencido.getDataVencimento_boleto_vencido());
         valores.put(DataBaseHelper.BoletosVencidos.BOLETOID,boletosVencido.getBoleto_id_vencido());
 
+System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"+boletosVencido.getBoleto_id_vencido());
 
-        if (boletosVencido.getBoleto_id_vencido() != null){
-            return getDatabase().update(DataBaseHelper.BoletosVencidos.TABELA,valores,
-                    "  boletoVencidoId=?", new String[]{boletosVencido.getBoleto_id_vencido().toString() });
-        }
 
         return getDatabase().insert(DataBaseHelper.BoletosVencidos.TABELA, null, valores);
+    }
+
+    public long updateBoletoVencido(BoletoVencido boletosVencido){
+        ContentValues valores = new ContentValues();
+        valores.put(DataBaseHelper.BoletosVencidos.NOME_BOLETO, boletosVencido.getNome_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.VALOR, boletosVencido.getValor_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.DESCRICAO, boletosVencido.getDescricao_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.DATA_VENCIMENTO, boletosVencido.getDataVencimento_boleto_vencido());
+        valores.put(DataBaseHelper.BoletosVencidos.BOLETOID,boletosVencido.getBoleto_id_vencido());
+
+
+
+            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"+boletosVencido.getBoleto_id_vencido().toString());
+            return getDatabase().update(DataBaseHelper.BoletosVencidos.TABELA,valores,
+                    "  boletoVencidoId=?", new String[]{boletosVencido.getBoleto_id_vencido().toString() });
+
     }
 
 
@@ -99,7 +112,7 @@ System.out.println("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" + modelVencido.g
 
         }
         cursor.close();
-
+        System.out.println("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV!!!!!!!!!!!");
         return boletosVencidos;
     }
 
